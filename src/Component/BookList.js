@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteBook_action } from '../Redux/action.js';
 import Navigation from './Navigation.js';
+import bookListImg from '../image/bookList.png'
 
 const BookList = () => {
     const bookList = useSelector(state => state.initialBookListReducer.bookList);
@@ -21,7 +22,11 @@ const BookList = () => {
             {
                 bookList.length === 0 ?
                     <div className='text-center my-5'>
-                        <h3>There is no books in the current list</h3>
+                        <div className='my-5'>
+                            <img src={bookListImg} className='img-fluid' alt={bookList} style={{ width: '800px', height: '400px' }} />
+                        </div>
+
+                        <h3>There are no books on the current list</h3>
                         <Link to="/add_book" style={{ textDecoration: 'none' }}>
                             <h5>Click here to Add book</h5>
                         </Link>
